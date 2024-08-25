@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: abhishek-joshi-flask-app
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: aab368a129322b41bd8ac3c87a5a04beb-357681086.us-east-1.elb.amazonaws.com
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: abhishek-joshi-flask-app
+            port:
+              number: 5000
