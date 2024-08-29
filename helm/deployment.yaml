@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: abhishek-joshi-flask-app
+  labels:
+    app: abhishek-joshi-flask-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: abhishek-joshi-flask-app
+  template:
+    metadata:
+      labels:
+        app: abhishek-joshi-flask-app
+    spec:
+      containers:
+      - name: flask-app
+        image:  abhishek2691999/abhishek-flask-app:{{ .image.tag }}
+        ports:
+        - containerPort: 5000
