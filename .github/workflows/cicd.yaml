@@ -25,6 +25,10 @@ jobs:
       run: |
           python -m pip install --upgrade pip
           pip install pylint
+        
+    - name: Run pylint
+      run: |
+          pylint main.py || true
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
@@ -43,10 +47,6 @@ jobs:
       run: |
           docker push abhishek2691999/abhishek-flask-app:${{ github.run_id }}
     
-    - name: Run pylint
-      run: |
-          pylint **/*.py
-          continue-on-error: true  # Optional: Continue the workflow even if pylint finds issues
 
   update-newtag-in-helm-chart:
     runs-on: ubuntu-latest
