@@ -47,13 +47,9 @@ jobs:
       run: |
           docker push abhishek2691999/abhishek-flask-app:${{ github.run_id }}
     
-
-  update-newtag-in-helm-chart:
-    runs-on: ubuntu-latest
-    steps:
     - name: update-tags
       run: |
-           ls
+           cat helm/python-app-development/values.yaml
    
     - name: Commit and push changes
       run: |
