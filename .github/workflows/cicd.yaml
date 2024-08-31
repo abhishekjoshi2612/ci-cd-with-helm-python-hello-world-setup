@@ -53,7 +53,7 @@ jobs:
     steps:
     - name: update-tags
       run: |
-           sed -i 's/tag: .*/tag: "${{github.run_id}}"/' helm/python-app-deployment/values.yaml
+           ls
    
     - name: Commit and push changes
       run: |
