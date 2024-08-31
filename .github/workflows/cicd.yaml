@@ -49,7 +49,7 @@ jobs:
     
     - name: update-tags
       run: |
-           cat helm/python-app-development/values.yaml
+           sed -i 's/tag: .*/tag: "${{github.run_id}}"/' helm/python-app-development/values.yaml
    
     - name: Commit and push changes
       run: |
