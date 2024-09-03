@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: flask-app
-        image:  abhishek2691999/abhishek-flask-app:{{ .image.tag }}
+        image:  abhishek2691999/abhishek-flask-app:{{ .Values.image.tag }}
         ports:
         - containerPort: 5000
