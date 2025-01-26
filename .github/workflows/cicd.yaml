@@ -77,13 +77,9 @@ jobs:
         echo "PATH=$HOME/sonar-scanner-4.8.0.2856-linux/bin:\$PATH" >> $GITHUB_ENV
 
     - name: Run SonarCloud Scan
-      env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      shell: bash
-      run: |
-        sonar-scanner \
-          -Dsonar.projectKey=abhishekjoshi2612_ci-cd-with-helm-python-hello-world-setup \
-          -Dsonar.organization=${{ secrets.ORGANIZATION_KEY }} \
-          -Dsonar.sources=. \
-          -Dsonar.host.url=https://sonarcloud.io \
-          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+      uses: SonarSource/sonarcloud-github-action@v2
+      with:
+       projectKey: abhishekjoshi2612_ci-cd-with-helm-python-hello-world-setup
+       organization: ${{ secrets.ORGANIZATION_KEY }}
+       token: ${{ secrets.SONAR_TOKEN }}
+     
