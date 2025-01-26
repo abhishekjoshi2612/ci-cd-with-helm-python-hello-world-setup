@@ -79,6 +79,7 @@ jobs:
     - name: Run SonarCloud Scan
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      shell: bash
       run: |
         sonar-scanner \
           -Dsonar.projectKey=abhishekjoshi2612_ci-cd-with-helm-python-hello-world-setup \
