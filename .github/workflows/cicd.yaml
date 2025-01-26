@@ -59,8 +59,7 @@ jobs:
       # Update tags in Helm chart
       - name: Update Helm chart image tag
         run: |
-          sudo apt-get update && sudo apt-get install -y yq
-          yq e '.image.tag = "${{ github.run_id }}"' -i helm/python-app-development/values.yaml
+          sed -i 's/tag: .*/tag: "${{github.run_id}}"/' helm/python-app-development/values.yaml
       
       - name: Commit and push changes
         run: |
