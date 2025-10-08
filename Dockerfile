@@ -1,5 +1,5 @@
 # Stage 1: Builder
-FROM python:3.11 AS builder
+FROM python:3.14 AS builder
 ENV PYTHONUNBUFFERED=1
 WORKDIR /app
 
@@ -13,7 +13,7 @@ COPY requirements.txt /wheels/requirements.txt
 RUN pip wheel --no-cache-dir --wheel-dir /wheels -r /wheels/requirements.txt
 
 # Stage 2: Runtime
-FROM python:3.11-slim AS runtime
+FROM python:3.14-slim AS runtime
 WORKDIR /app
 
 # Install necessary utilities
